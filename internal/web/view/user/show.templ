@@ -1,0 +1,18 @@
+package user
+
+import (
+	"github.com/ghuyng/gohtmx/internal/web/view/layout"
+	"github.com/ghuyng/gohtmx/internal/web/models"
+	"github.com/ghuyng/gohtmx/internal/web/view/components"
+)
+
+templ Show(user models.User) {
+	@layout.Base() {
+		<h1 class="text-3xl font-bold underline">Hello { user.Email } from user </h1>
+		@components.Input(components.InputProps{
+			Typ:   "text",
+			Name:  "email",
+			Value: user.Email,
+		})
+	}
+}

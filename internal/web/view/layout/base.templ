@@ -1,0 +1,25 @@
+package layout
+
+import "github.com/ghuyng/gohtmx/internal/web/view/components"
+
+templ header(title string) {
+	<head>
+		<title>{ title }</title>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<script src="/assets/js/htmx.min.js"></script>
+		<link href="/assets/css/output.css" rel="stylesheet"/>
+	</head>
+}
+
+templ Base() {
+	<html>
+		@header("App title")
+		<body class="flex flex-col h-full">
+			@components.Nav()
+			<main class="flex-1">
+				{ children... }
+			</main>
+		</body>
+	</html>
+}
